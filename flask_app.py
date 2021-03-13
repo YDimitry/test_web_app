@@ -60,11 +60,11 @@ def postToChat(message, to=1,typ="SYSTEM"):
     method = "im.notify"
     data = {
         "to":to,
-        "message":message,
+        "message":"message",
         "type":typ
     }
-    # return sendPOST(webHookURL,method,data)
-    return sendPOST()
+    return sendPOST(webHookURL,method,data)
+    # return sendPOST()
 
 @app.route('/', methods = ['GET', 'POST'])
 def hello_world():
