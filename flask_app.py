@@ -60,7 +60,7 @@ def postToChat(message, to=1,typ="SYSTEM"):
     method = "im.notify"
     data = {
         "to":to,
-        "message":"message",
+        "message":message,
         "type":typ
     }
     return sendPOST(webHookURL,method,data)
@@ -75,8 +75,11 @@ def hello_world():
 
 @app.route('/eventsHandler', methods = ['GET', 'POST'])
 def eventHandler():
-    res = postToChat(json.dumps(request.form))
-    return json.dumps(res)
+    with open("result.json","w") as f:
+        f.write(json.dumps(request.form))
+    # res = postToChat(json.dumps(request.form))
+    # return json.dumps(res)
+    return "done"
 
 if __name__ == "__main__":
     app.run()
