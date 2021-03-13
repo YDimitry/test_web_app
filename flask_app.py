@@ -63,7 +63,8 @@ def postToChat(message, to=1,typ="SYSTEM"):
         "message":message,
         "type":typ
     }
-    return sendPOST(webHookURL,method,data)
+    # return sendPOST(webHookURL,method,data)
+    return sendPOST()
 
 @app.route('/', methods = ['GET', 'POST'])
 def hello_world():
